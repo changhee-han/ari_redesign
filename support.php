@@ -1,12 +1,12 @@
 <?php
 /*
-Template Name: About Page
+Template Name: Support Page
 */
 ?>
 <?php get_header(); ?>
 
 <?php
-echo "this is about page";
+echo "this is support page";
 ?>
 
 
