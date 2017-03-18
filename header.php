@@ -10,6 +10,8 @@
     <body>
         <nav id="site-navigation" class="navigation main-navigation" role="navigation">
             <?php wp_nav_menu(array('theme_location' == 'primary')); ?>
+            <?php wp_nav_menu( array('menu' => 'Sub Menu')); ?>
         </nav>
+
 
 
