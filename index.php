@@ -95,8 +95,6 @@ if( have_rows('article_banner') ):
     <?php endwhile; ?>
 <?php endif; ?>
 
-
-
 <?php
 
     //Media Banner
