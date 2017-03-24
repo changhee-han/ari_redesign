@@ -43,4 +43,31 @@ h3 {
     float: left;
 }
 
+.latest-news img,
+.success-stories img {
+    width: 552px;
+    height: 352.44px;
+}
+
+.latest-news,
+.success-stories {
+    width: 552px;
+    height: 600px;
+}
+
+.media_banner{
+     width: 100%;
+    float: left;
+    background: #20262b;
+}
+
+.facts_banner{
+    width: 100%;
+    float: left;
+    background: #5c8005;
+}
+
+
+
+
 
