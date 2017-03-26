@@ -254,7 +254,7 @@ if (have_rows('social_banner')): ?>
         <?php if (get_sub_field('social_banner_display_on_off')): ?>
             <div class="section social_banner">
                 <h2 class="social_headline">
-                    <?php the_sub_field('subscription_title'); ?>
+                    <?php the_sub_field('social_headline'); ?>
                 </h2>
                 <?php
                 //Get Twitter User Info
@@ -334,7 +334,7 @@ if (have_rows('social_banner')): ?>
                                 </div>
                                 <div class="userInfo">
                                     <p class="twitterName"><?php echo $twiterName; ?></p>
-                                    <p class="twiterUsername"><?php echo $twiterUsername; ?></p>
+                                    <p class="twiterUsername"><?php echo '@'. $twiterUsername; ?></p>
 
                                 </div>
                             </div>
