@@ -300,7 +300,7 @@ if (have_rows('social_banner')): ?>
     <?php
     // loop through the rows of data
     while (have_rows('social_banner')) : the_row(); ?>
-        <?php if (get_sub_field('social_banner_display_on_off')): ?>
+        <?php if (get_sub_field('social_banner_display_on_off')): ?>events_display_on
             <div class="section social_banner">
                 <h2 class="social_headline">
                     <?php the_sub_field('social_headline'); ?>
@@ -445,5 +445,73 @@ if (have_rows('social_banner')): ?>
 
 
 
+<?php if (get_field('events_display_on')): ?>
+<?php
+//var_dump(get_events());
 
+
+
+//EventStartDate //EventEndDate
+
+    $events = get_events();
+    $event = $events[0];
+
+    $date = new DateTime($event->EventStartDate);
+    $month = $date->format('F');
+    $day = $date->format('d');
+
+    setup_postdata($event);
+    ?>
+
+    <div class="section events_banner">
+
+        <div class="event_info_box">
+            <div class="event_date">
+                <div class="event_month"><?php echo $month; ?></div>
+                <div class="event_day"><?php echo $day; ?></div>
+            </div>
+            <div class="event_info">
+                <h2 class="event_title"><?php echo $event->post_title; ?></h2>
+                <p class="event_content"><?php the_excerpt(); ?></p>
+<!--                <a class="more_button" href="--><?php //echo $event->guid; ?><!--">Read More</a>-->
+                <a class="more_button" href="<?php the_permalink(); ?>">Read More</a>
+            </div>
+        </div>
+        <?php wp_reset_postdata();
+
+        // Retrieve the next 3 upcoming events
+        $upcomingEvents = tribe_get_events( array(
+            'posts_per_page' => 3,
+            'start_date' => date( 'Y-m-d H:i:s'. time() )
+        ) );
+        ?>
+
+        <div class="upcoming_events">
+            <ul>
+            <?php
+
+            foreach ($upcomingEvents as $upcomingEvent) :
+                setup_postdata($upcomingEvent);
+
+                $date = new DateTime($upcomingEvent->EventStartDate);
+                $date = $date->format("F d, Y");
+                ?>
+                <li>
+                    <p class="upcoming_event_date"> <?php echo  $date ?> </p>
+                    <h2 class="event_title"><?php echo $upcomingEvent->post_title; ?></h2>
+
+                    <a class="more_button" href="<?php the_permalink(); ?>">Read More</a>
+                </li>
+            <?php endforeach;
+            wp_reset_postdata(); ?>
+            </ul>
+
+<!--            --><?php //var_dump(events_displaying_upcoming());?>
+            <?php //include('./wp-content/plugins/the-events-calendar/src/views/month.php');
+            include('./wp-content/plugins/the-events-calendar/src/views/widgets/list-widget.php');
+            ?>
+        </div>
+    </div>
+
+<?php endif; ?>
 <?php get_footer(); ?>
