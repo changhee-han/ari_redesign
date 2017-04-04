@@ -2,6 +2,15 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700');
 @import url('https://fonts.googleapis.com/css?family=Droid+Sans');
 
+/*  Colors
+
+        lightest grey    #e9e9e9
+        dark grey        #20262b 
+        green            #5c8005
+
+
+*/
+
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 16px;
@@ -9,6 +18,8 @@ body {
     background-color: #e9e9e9; /*Lightest grey*/
     color: #20262b;/*dark grey*/
 }
+
+
 h1 {
     color: #e9e9e9;
     font-size: 2.8em;
@@ -23,6 +34,14 @@ h3 {
     color: #e9e9e9;
     font-size: 1.9em;
     font-weight: 300;
+}
+
+
+/************************HEADER**************************/
+
+
+header{
+    background-color: #5c8005;
 }
 
 .hero_banner {
