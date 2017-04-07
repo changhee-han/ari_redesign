@@ -1,5 +1,5 @@
     <footer>
-        <p>Put your footer here</p>
+        <p>----footer starts here----</p>
         <?php wp_nav_menu(array('theme_location' == 'secondary')); ?>
 
 
